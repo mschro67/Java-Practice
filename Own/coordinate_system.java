@@ -12,15 +12,18 @@ public class coordinate_system{
     }
     public static void display(String[][] system){
         for (int x=system.length-1;x>=0;x--){
-            System.out.println(Arrays.toString(system[x]));
+            System.out.println(x+" "+Arrays.toString(system[x]));
+        }
+        for (int x=0;x<system.length;x++){
+            System.out.print("  "+x);
         }
         System.out.println();
     }
-    public static String[][] def(int x,int y){
-        String[][] system=new String[x][y];
+    public static String[][] def(int x,int y,String character){
+        String[][] system=new String[x+1][y+1];
         for (int a=0;a<system.length;a++){
             for (int b=0;b<system[a].length;b++){
-                system[a][b]=".";
+                system[a][b]=String.valueOf(character);
             }
         }
         return system;
@@ -40,7 +43,7 @@ public class coordinate_system{
         return system;
     }
     public static void main(String[] args){
-        String[][] system=line(def(11,11),2,0,"/");
+        String[][] system=point(line(def(11,11,"."),1,0,"@"),9,1,"X");
         display(system);
     }
 }
